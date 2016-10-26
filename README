@@ -42,6 +42,6 @@ Another example, please see file "example.c"
 > make; ./example;
 
 2.Warning:
-Space Limits: ONLY 14M effective memory unless MAX_HEAP value in file "freeheap.h" and MAX_VOLUME in "interface3.h" is changed.
+Space Limits: ONLY 14M effective memory unless MAX_HEAP value in file "freeheap.h" and MAX_VOLUME in "interface3.h" are changed.
 Only support 0 up to 100,000 allocated pointers unless Space Limits is enlarged.
 Conservative C collector.

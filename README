@@ -36,7 +36,7 @@ int main()
 	return 0;
 }
 
-Our tardy garbage collector will help you take care of it.
+Our garbage collector will help you take care of it.
 
 Another example, please see file "example.c"
 > make; ./example;

@@ -5,7 +5,7 @@ A toy C garbage collector based on csapp malloc lab
 Testing environment: Ubuntu 12.04.5
 
 Suppose you write a program like this one:
-"
+
 //#include <...>
 //int main()
 //{
@@ -17,10 +17,10 @@ Suppose you write a program like this one:
 //	free(hatetofree);
 //
 //	return 0;
-//}"
+//}
 
 then transfer it into the following:
-"
+
 //#include <interface3.h>
 //#include <...>
 //
@@ -36,7 +36,7 @@ then transfer it into the following:
 //
 //	gc_exit(); /* to destroy gc */
 //	return 0;
-//}"
+//}
 
 Our tardy garbage collector will help you take care of it.
 

@@ -41,7 +41,7 @@ Our tardy garbage collector will help you take care of it.
 Another example, please see file "example.c"
 > make; ./example;
 
-2.Limits:
-Space Limits: ONLY 14M effective memory.
-Only support 0 up to 10000 allocated pointers.
+2.Warning:
+Space Limits: ONLY 14M effective memory unless MAX_HEAP value in file "freeheap.h" and MAX_VOLUME in "interface3.h" is changed.
+Only support 0 up to 10000 allocated pointers unless Space Limits is enlarged.
 Conservative C collector.

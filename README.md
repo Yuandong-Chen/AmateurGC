@@ -6,38 +6,38 @@ Testing environment: Ubuntu 12.04.5
 
 Suppose you write a program like this one:
 
-#include <...>
+//#include <...>
 
-int main()
-{
-	...
-	void *hatetofree = (void *)malloc(...);
-
-	...
-
-	free(hatetofree);
-
-	return 0;
-}
+//int main()
+//{
+//	...
+//	void *hatetofree = (void *)malloc(...);
+//
+//	...
+//
+//	free(hatetofree);
+//
+//	return 0;
+//}
 
 then transfer it into the following:
 
-#include <interface3.h>
-#include <...>
-
-int main()
-{
-	gc_init(); /* to init gc */
-	...
-	void *hatetofree = (void *)gc_calloc(...);
-
-	...
-
-	/* please forget free(hatetofree); */
-
-	gc_exit(); /* to destroy gc */
-	return 0;
-}
+//#include <interface3.h>
+//#include <...>
+//
+//int main()
+//{
+//	gc_init(); /* to init gc */
+//	...
+//	void *hatetofree = (void *)gc_calloc(...);
+//
+//	...
+//
+//	/* please forget free(hatetofree); */
+//
+//	gc_exit(); /* to destroy gc */
+//	return 0;
+//}
 
 Our tardy garbage collector will help you take care of it.
 

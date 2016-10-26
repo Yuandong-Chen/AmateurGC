@@ -1,49 +1,46 @@
 # csapp-gc-calloc
-A toy C garbage collector based on csapp malloc lab
+A toy C garbage collector based on csapp malloc lab</br>
 
-1.How to use it?
-Testing environment: Ubuntu 12.04.5
+<h4>1.How to use it?</h4>
+Testing environment: Ubuntu 12.04.5</br>
 
-Suppose you write a program like this one:
+Suppose you write a program like this one:</br>
 
-//#include <...>
-//int main()
-//{
-//	...
-//	void *hatetofree = (void *)malloc(...);
-//
-//	...
-//
-//	free(hatetofree);
-//
-//	return 0;
-//}
+#include <...></br>
+int main()</br>
+{</br>
+  ...</br>
+  void *hatetofree = (void *)malloc(...);</br>
+  ...</br>
+  free(hatetofree);</br>
+  return 0;</br>
+}</br>
 
-then transfer it into the following:
+then transfer it into the following:</br>
 
-//#include <interface3.h>
-//#include <...>
-//
-//int main()
-//{
-//	gc_init(); /* to init gc */
-//	...
-//	void *hatetofree = (void *)gc_calloc(...);
-//
-//	...
-//
-//	/* please forget free(hatetofree); */
-//
-//	gc_exit(); /* to destroy gc */
-//	return 0;
-//}
+#include "interface3.h" </br>
+#include <...> </br>
+</br>
+int main()</br>
+{</br>
+  gc_init(); /* to init gc */</br>
+  ...</br>
+  void *hatetofree = (void *)gc_calloc(...);</br>
+  </br>
+  ...</br>
+  </br>
+  /* please forget free(hatetofree); */</br>
+  </br>
+  gc_exit(); /* to destroy gc */</br>
+  return 0;</br>
+}</br>
 
-Our tardy garbage collector will help you take care of it.
+Our tardy garbage collector will help you take care of it.</br>
 
-Another example, please see file "example.c"
-//> make; ./example;
+Another example, please see file "example.c"</br>
+<p>> make; ./example;</p></br>
 
-2.Limits:
-Space Limits: ONLY 14M effective memory.
-Only support 0 up to 10000 allocated pointers.
-Conservative C collector.
+<h3>2.Limits:</h3>
+Space Limits: ONLY 14M effective memory.</br>
+Only support 0 up to 10000 allocated pointers.</br>
+Conservative C collector.</br>

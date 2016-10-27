@@ -3,7 +3,7 @@
 #include <pthread.h>
 #include <ctype.h>
 
-pthread_mutex_t gc_lock; /* largest lock for __gc_calloc */
+pthread_mutex_t gc_lock; /* unimplemented! DO NOT USE our gc in multi-thread programs! */
 
 void *__gc_calloc(size_t size);
 int __gc_init();

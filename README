@@ -19,12 +19,12 @@ int main()
 
 then transfer it into the following:
 
-#include <interface3.h>
+#include "interface3.h"
 #include <...>
 
 int main()
 {
-	gc_init(); /* to init gc */
+	__gc_init(); /* to init gc */
 	...
 	void *hatetofree = (void *)gc_calloc(...);
 
@@ -32,14 +32,14 @@ int main()
 
 	/* please forget free(hatetofree); */
 
-	gc_exit(); /* to destroy gc */
+	__gc_exit(); /* to destroy gc */
 	return 0;
 }
 
 Our garbage collector will help you take care of it.
 
-Another example, please see file "example.c"
-> make; ./example;
+More examples, please see file "example.c"(test __gc_calloc throughput) and "snake.c"(a terminal game)
+> make; ./example; ./snake;
 
 2.Warning:
 Space Limits: ONLY 14M effective memory unless MAX_HEAP value in file "freeheap.h" and MAX_VOLUME in "interface3.h" are changed.

@@ -10,16 +10,10 @@
 int *a[NUM];
 size_t size[NUM];
 
-void* leak(void* a)
+void leak(int i)
 {
-    //sleep(1);
-    int i = 0;
-    for(; i< NUM; i++){
-	pthread_mutex_lock(&gc_lock);
-        int* leak = (int *)__gc_calloc(size[i]);
-	pthread_mutex_unlock(&gc_lock);
-    }
-    return NULL;
+    int* leak = (int *)__gc_calloc(size[i]);
+    return;
 }
 
 int main(int argc, char *argv[])
@@ -29,37 +23,33 @@ int main(int argc, char *argv[])
 
     int j;
     int i;
-    pthread_mutex_init(&gc_lock,NULL);
+
     for (i = 0; i < NUM; ++i)
     {
         size[i] = 1 + (size_t)(1.0*RANGE*rand()/(RAND_MAX+1.0));
-        //printf("%u\n", (unsigned int)size[i]);
     }
-    //sleep(10);
+
     __gc_init();
     
-    pthread_t t1;
-    pthread_create(&t1, NULL, leak, NULL);
     start = clock();
 
     for (j = 0; j < TEST; ++j)
     {
         for(i = 0; i <NUM; i++){
-	    pthread_mutex_lock(&gc_lock);
+	    
             a[i] = (int *)__gc_calloc(size[i]);  
             *a[i] = i;
-	    pthread_mutex_unlock(&gc_lock);               
+	    leak(i);              
         }
     }
-    //sweep();
-    pthread_join(t1,NULL);
+   
     finish = clock();
     
     for (j = 0; j < TEST; ++j)
     {
         for(i = 0; i <NUM; i++){
-            a[i] = (int *)malloc(size[i]);  
-            *a[i] = i;    
+            a[i] = (int *)malloc(size[i]);  /* malloc might return NULL since we already reserve 40M for our GC */
+            *a[i] = i;   /* warning: if malloc return NULL, this will cause segmentation fault! */ 
         }
 
         for(i = 0; i <NUM; i++){

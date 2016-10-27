@@ -4,7 +4,7 @@
 #include "interface3.h"
 
 #define NUM 10000
-#define TEST 1000
+#define TEST 100
 #define RANGE 100
 
 int *a[NUM];
@@ -38,8 +38,7 @@ int main(int argc, char *argv[])
         for(i = 0; i <NUM; i++){
 	    
             a[i] = (int *)__gc_calloc(size[i]);  
-            *a[i] = i;
-	    leak(i);              
+            *a[i] = i;              
         }
     }
    

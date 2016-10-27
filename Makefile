@@ -1,7 +1,13 @@
-all: clean example
+MYGCC := gcc -m32 -O1
+APPEND := marksweep.c rbtree.c unordered_list.c freeheap.c
 
-example: example.c unordered_list.c freeheap.c
-	gcc -m32 -O1 example.c marksweep.c rbtree.c unordered_list.c freeheap.c -lpthread -o example
+all: clean example snake
+
+example: example.c
+	$(MYGCC) example.c $(APPEND) -o example 
+
+snake: snake.c
+	$(MYGCC) snake.c $(APPEND) -lcurses -o snake 
 
 clean:
-	-rm ./example;
+	-rm ./example ./snake;

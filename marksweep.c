@@ -154,7 +154,7 @@ void *__gc_calloc(size_t size)
 {
 	double ratio = (double)(rvolume) / MAX_VOLUME;
 	//printf("e****ratio: %f\n",(double)rvolume / MAX_VOLUME);
-	if(ratio > 0.00001){
+	if(ratio > 0.35){
 	    //printf("s****ratio: %f\n",(double)volume / MAX_VOLUME);
 	   gc_collect();
 	   

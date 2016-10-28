@@ -42,7 +42,7 @@ More examples, please see file "example.c"(test __gc_calloc throughput) and "sna
 > make; ./example; ./snake;
 
 2.Warning:
-Space Limits: ONLY 14M effective memory unless MAX_HEAP value in file "freeheap.h" and MAX_VOLUME in "interface3.h" are changed.
-Only support 0 up to 100,000 allocated pointers unless Space Limits is enlarged.
+Space Limits: ONLY 40M*0.75=30M effective memory unless MAX_HEAP value in file "freeheap.h" and MAX_VOLUME in "interface3.h" are changed.
+Only support 0 up to 400,000 allocated pointers unless Space Limits is enlarged.
 DO NOT support multi-thread programs yet. gc_lock is unimplemented in file "interface3.h".
 Conservative C collector.

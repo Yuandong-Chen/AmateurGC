@@ -51,14 +51,18 @@ int link_insert(Rn *root, Type data)
 
 void link_destroy(Ln *node)
 {
-	if(node == NULL)
+	Ln *curr = node;
+	Ln *next = NULL;
+	
+	if(curr == NULL)
 		return;
+	
+	do{
+		next = curr->next;
+		__free(curr);
+		curr = next;
+	} while(next != NULL);
 
-	if(node->next !=NULL){
-		link_destroy(node->next);
-	}
-	__free(node);
-	node->next = NULL;
 	return;
 }
 
@@ -154,7 +158,7 @@ void *__gc_calloc(size_t size)
 {
 	double ratio = (double)(rvolume) / MAX_VOLUME;
 	//printf("e****ratio: %f\n",(double)rvolume / MAX_VOLUME);
-	if(ratio > 0.35){
+	if(ratio > 0.75){
 	    //printf("s****ratio: %f\n",(double)volume / MAX_VOLUME);
 	   gc_collect();
 	   

@@ -84,7 +84,7 @@ move(head->y, head->x);
 addch('*');
 refresh();
 
-tmp = (Snake)malloc(sizeof(SNAKE));
+tmp = (Snake)__gc_calloc(sizeof(SNAKE));
 tmp->x = head->x + dir_x;
 tmp->y = head->y + dir_y;
 tmp->next = head;

@@ -77,7 +77,7 @@ void initGame()
     food.cx = rand() % COLS;
     food.cy = rand() % (LINES-2) + 2;
     creatLink();
-    setTicker(20);
+    setTicker(10);
 }
 
 //设置计时器（这个函数是书本上的例子，有改动）
@@ -218,7 +218,7 @@ void getOrder()
             dir.cx = 0;
             dir.cy = 1;
         }
-        setTicker(20);
+        setTicker(10);
     }
 }
 
@@ -238,6 +238,8 @@ void over(int i)
         addstr("Mission Complete");
     setTicker(0);                //关闭计时器
     deleteLink();                //释放链表的空间
+    refresh();
+    sleep(1);
     longjmp(buf,1);
 }
 

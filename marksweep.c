@@ -97,10 +97,9 @@ static void sweep()
 	
 	link_destroy(root->node);
 	int i = 0;
-	curr = root->node;
 	
 	__free(root);
-	root->node = NULL;
+	root = NULL;
 }
 
 static void mark_from_region(ptr *begin, ptr *end)

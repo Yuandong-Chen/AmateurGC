@@ -32,9 +32,9 @@ static void mark(ptr p)
 	//sleep(3);
 	SET_MARK(b, MARK);
 	len = GET_SIZE(b) - 2*DSIZE - WSIZE;
-	for (i = 0; i < len/4; i += 1)
+	for (i = 0; i < len; i += 4)
 	{
-		mark(*(unsigned int *)(b+1+i));
+		mark(*((unsigned int *)(unsigned int)(b+4+i)));
 	}
 
 	return;

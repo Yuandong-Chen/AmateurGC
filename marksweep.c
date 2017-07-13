@@ -148,7 +148,7 @@ void gc_collect()
     int i=stack_top+4;
 
     mark_from_region((ptr *)((char *)stack_top + 4),(ptr *)(stack_bottom));
-    mark_from_region((ptr *)((char *)_etext + 6),(ptr *)(_end));
+    mark_from_region((ptr *)((char *)_etext),(ptr *)(_end));
 
     sweep();
 }
